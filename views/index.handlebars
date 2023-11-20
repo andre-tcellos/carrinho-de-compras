@@ -1,0 +1,76 @@
+<section class="linha bloco_principal">
+    <div class="container">
+        <div class="ajuste">
+            {{#if focaLogin}}
+                <input type="radio" id="cadastrar" name="rdcadastrologin" value="cadastrar">
+                <label for="cadastrar">Cadastrar Agora!</label>
+                <input type="radio" id="logar" name="rdcadastrologin" value="logar" checked="true">
+                <label for="logar">Fazer Login</label>
+            {{else}}
+                <input type="radio" id="cadastrar" name="rdcadastrologin" value="cadastrar" checked="true">
+                <label for="cadastrar">Cadastrar Agora!</label>
+                <input type="radio" id="logar" name="rdcadastrologin" value="logar">
+                <label for="logar">Fazer Login</label>
+            {{/if}}
+
+            <ul>
+                <li>
+                    <h3>
+                        Faça o seu Cadastro e comece à usar o <span>Seu Carrinho de Compras</span>!
+                    </h3>
+
+                    {{#if segundoPasso}}
+                        <form action="/finalizar" method="POST">
+                            <input type="text" maxlength="14" name="cpf" id="cpf" placeholder="CPF" value="{{usuario.cpf}}" disabled>
+                            <input type="email" maxlength="50" name="email" id="email" placeholder="Email" value="{{usuario.email}}" disabled>
+                            <input type="password" maxlength="50" name="senha" id="senha" placeholder="Senha" value="{{usuario.senha}}" disabled>
+                            <input type="password" maxlength="50" name="confirmaSenha" id="confirmaSenha" placeholder="Confirmar Senha" value="{{usuario.confirmaSenha}}" disabled>
+
+                            <h4>Complete o seu Cadastro:</h4>
+                            <input type="text" maxlength="50" name="fotoCadastro" id="fotoCadastro" placeholder="Foto" value="{{usuario.foto}}">
+                            <input type="text" maxlength="50" name="nomeCadastro" id="nomeCadastro" placeholder="Nome Completo" value="{{usuario.nome}}">
+                            <input type="text" maxlength="9" name="cepCadastro" id="cepCadastro" placeholder="CEP" value="{{usuario.cep}}">
+                            <input type="text" maxlength="50" name="logradouroCadastro" id="logradouroCadastro" placeholder="Logradouro" value="{{usuario.logradouro}}">
+                            <input type="text" maxlength="5" name="numeroCadastro" id="numeroCadastro" placeholder="Número" value="{{usuario.numero}}">
+                            <input type="text" maxlength="20" name="bairroCadastro" id="bairroCadastro" placeholder="Bairro" value="{{usuario.bairro}}">
+                            <input type="text" maxlength="20" name="cidadeCadastro" id="cidadeCadastro" placeholder="Cidade" value="{{usuario.cidade}}">
+                            <input type="text" maxlength="2" name="ufCadastro" id="ufCadastro" placeholder="UF" value="{{usuario.uf}}">
+                            <input type="text" maxlength="20" name="paisCadastro" id="paisCadastro" placeholder="País" value="{{usuario.pais}}">
+                            <input type="text" maxlength="50" name="complementoCadastro" id="complementoCadastro" placeholder="Complemento" value="{{usuario.complemento}}">
+                            <input type="text" maxlength="15" name="telefoneCadastro" id="telefoneCadastro" placeholder="Telefone" value="{{usuario.telefone}}">
+
+                            <div class="btns">
+                                <button class="verde" type="submit" name="novoUsuario" value="confirmar">Criar Conta!</button>
+                                <button class="azul" type="submit" name="novoUsuario" value="voltar">Voltar</button>
+                            </div>
+                        </form>
+                    {{else}}
+                        <form action="/novo" method="POST">
+                            <input type="text" maxlength="14" name="cpfCadastro" id="cpfCadastro" placeholder="CPF" value="{{usuario.cpf}}">
+                            <input type="email" maxlength="50" name="emailCadastro" id="emailCadastro" placeholder="Email" value="{{usuario.email}}">
+                            <input type="password" maxlength="50" name="senhaCadastro" id="senhaCadastro" placeholder="Senha" value="{{usuario.senha}}">
+                            <input type="password" maxlength="50" name="confirmaSenhaCadastro" id="confirmaSenhaCadastro" placeholder="Confirmar Senha" value="{{usuario.confirmaSenha}}">
+                            
+                            <div class="btns">
+                                <button class="azul" type="submit">Próximo Passo</button>
+                            </div>
+                        </form>
+                    {{/if}}
+
+                    <span>{{mensagemDeErroCadastrar}}</span>
+                </li>
+                <li>
+                    <h3>
+                        Já tem um Cadastro? Então <span>entre na sua conta</span> através do formulário abaixo.
+                    </h3>
+                    <form action="/login" method="POST">
+                        <input type="email" maxlength="50" name="emailLogin" id="emailLogin" placeholder="Email" value="{{login.email}}">
+                        <input type="password" maxlength="50" name="senhaLogin" id="senhaLogin" placeholder="Senha" value="{{login.senha}}">
+                        <button type="submit">Entrar em sua Conta!</button>
+                    </form>
+                    <span>{{mensagemDeErroLogin}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>

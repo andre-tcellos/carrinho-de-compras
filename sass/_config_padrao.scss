@@ -1,0 +1,103 @@
+@import "reset";
+@import "screens";
+@import "colors";
+@import "fonts";
+
+// CSS Padrão
+body {
+	color: $preto-900;
+	font-family: $montserrat;
+	font-size: 16px;
+
+	img {
+		max-width: 100%;
+	}
+
+	i {
+		font-style: italic;
+	}
+
+	b {
+		font-weight: 700;
+	}
+	
+	strong {
+		font-weight: 900;
+	}
+
+	a,
+	button {
+		cursor: pointer;
+		text-decoration: none;
+		transition: filter 0.2s linear;
+
+		&:hover {
+			filter: brightness(0.8);
+		}
+	}
+}
+
+.linha {
+	width: 100%;
+
+	.container {
+		width: 90%;
+		max-width: 1090px;
+		margin: 0 auto;
+
+		@media #{$mobile} {
+			width: 90%;
+		}
+	}
+}
+
+// Header e Footer
+header {
+	background-color: $verde-800;
+	padding: .5rem 0;
+
+	> .container {
+		display: flex;
+		flex-wrap: wrap;
+		align-content: center;
+		justify-content: space-between;
+		align-items: center;
+
+		> h1 {
+			display: none;
+		}
+
+		> a {
+			display: block;
+
+			> img {
+				display: block;
+				max-width: 80px;
+				filter: brightness(0) invert(1);
+			}
+		}
+	}
+}
+
+footer {
+	background-color: $rosa-400;
+	padding: .5rem 0;
+
+	> .container {
+		display: flex;
+		flex-wrap: wrap;
+		align-content: center;
+		justify-content: center;
+		align-items: center;
+
+		> a {
+			display: block;
+
+			> img {
+				display: block;
+				max-width: 80px;
+				filter: brightness(0) invert(1);
+			}
+		}
+	}
+}

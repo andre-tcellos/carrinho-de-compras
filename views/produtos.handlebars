@@ -1,0 +1,194 @@
+<section class="linha bloco_produtos">
+    <div class="container">
+        <div class="ajuste">
+            <form action="/menu" method="post">
+                <div class="btns">
+                    <button class="branco" type="submit" name="btnMenu" value="sair">Sair/Logout</button>
+                    <button class="verde" type="submit" name="btnMenu" value="usuario">Meu Usuário</button>
+                    <button class="verde" type="submit" name="btnMenu" value="mercado">Meu Mercado</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="cobre_tabela">
+        <div class="tabela">
+            <table class="sortable">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Marca</th>
+                        <th>Categoria</th>
+                        <th>Uni. de Medida</th>
+                        <th>Medida</th>
+                        <th>Lote</th>
+                        <th>Data Fabricação</th>
+                        <th>Data Validade</th>
+                        <th>Preço</th>
+                        <th>Foto</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each produtos}}
+                        <tr class="item">
+                            <td>{{this.nome}}</td>
+                            <td>{{this.descricao}}</td>
+                            <td>{{this.marca}}</td>
+                            <td>{{this.categoria}}</td>
+                            <td>{{this.unidadeMedida}}</td>
+                            <td>{{this.medida}}</td>
+                            <td>{{this.lote}}</td>
+                            <td>{{this.dataFabricacao}}</td>
+                            <td>{{this.dataValidade}}</td>
+                            <td>{{this.preco}}</td>
+                            <td>{{this.foto}}</td>
+                            <td>
+                                <div class="ajuste">
+                                    <form action="/atualizarProduto" method="post">
+                                        <button class="verde" type="submit" name="btn" value="{{this.id}}">Editar</button>
+                                    </form>
+                                    <form action="/deletarProduto" method="post">
+                                        <button class="vermelho" type="submit" name="btn" value="{{this.id}}">Deletar</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        <div class="form_novo_edit">
+            {{#if atualizarProduto}}
+                
+                <h3>Atualizando Produto</h3>
+
+                <div class="atualizar">
+                    <form action="/confirmarAtualizacaoProduto" method="post">
+                        <input type="hidden" name="idNovo" id="idNovo" value="{{dadosDoProduto.id}}">
+                        <input type="hidden" name="mercadoIDNovo" id="mercadoIDNovo" value="{{dadosDoProduto.mercadoID}}">
+
+                        <div class="ajuste">
+                            <div class="item">
+                                <label for="nomeNovo">Novo:</label>
+                                <input type="text" maxlength="50" name="nomeNovo" id="nomeNovo" value="{{dadosDoProduto.nome}}">
+                            </div>
+                            <div class="item">
+                                <label for="descricaoNovo">Descrição:</label>
+                                <input type="text" maxlength="50" name="descricaoNovo" id="descricaoNovo" value="{{dadosDoProduto.descricao}}">
+                            </div>
+                            <div class="item">
+                                <label for="marcaNovo">Marca:</label>
+                                <input type="text" maxlength="50" name="marcaNovo" id="marcaNovo" value="{{dadosDoProduto.marca}}">
+                            </div>
+                            <div class="item">
+                                <label for="unidadeMedidaNovo">Unidade de Medida:</label>
+                                <input type="text" maxlength="10" name="unidadeMedidaNovo" id="unidadeMedidaNovo"
+                                    value="{{dadosDoProduto.unidadeMedida}}">
+                            </div>
+                            <div class="item">
+                                <label for="medidaNovo">Medida:</label>
+                                <input type="number" maxlength="10" name="medidaNovo" id="medidaNovo" step=".01"
+                                    value="{{dadosDoProduto.medida}}">
+                            </div>
+                            <div class="item">
+                                <label for="loteNovo">Lote:</label>
+                                <input type="text" maxlength="10" name="loteNovo" id="loteNovo" value="{{dadosDoProduto.lote}}">
+                            </div>
+                            <div class="item">
+                                <label for="dataFabricacaoNovo">Data de Fabricação:</label>
+                                <input type="date" name="dataFabricacaoNovo" id="dataFabricacaoNovo" value="{{dadosDoProduto.dataFabricacao}}">
+                            </div>
+                            <div class="item">
+                                <label for="dataValidadeNovo">Data de Validade:</label>
+                                <input type="date" name="dataValidadeNovo" id="dataValidadeNovo" value="{{dadosDoProduto.dataValidade}}">
+                            </div>
+                            <div class="item">
+                                <label for="precoNovo">Preço:</label>
+                                <input type="number" maxlength="10" name="precoNovo" id="precoNovo" step=".01" value="{{dadosDoProduto.preco}}">
+                            </div>
+                            <div class="item">
+                                <label for="fotoNovo">Foto:</label>
+                                <input type="text" maxlength="50" name="fotoNovo" id="fotoNovo" value="{{dadosDoProduto.foto}}">
+                            </div>
+                            <div class="item">
+                                <label for="categoriaNovo">Categoria:</label>
+                                <input type="text" maxlength="50" name="categoriaNovo" id="categoriaNovo" value="{{dadosDoProduto.categoria}}">
+                            </div>
+                        </div>
+                        
+                        <div class="btns">
+                            <button class="verde" type="submit" name="btnAtualizar" value="confirmar">Confirmar Atualização</button>
+                            <button class="vermelho" type="submit" name="btnAtualizar" value="cancelar">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+
+            {{else}}
+
+                <input type="checkbox" id="novoproduto" name="rddadosproduto" value="novoproduto">
+                <label for="novoproduto">Cadastrar Novo Produto!</label>
+
+                <div class="novo">
+                    <form action="/novoProduto" method="post">
+                        <div class="ajuste">
+                            <div class="item">
+                                <label for="nomeNovo">Novo:</label>
+                                <input type="text" maxlength="50" name="nomeNovo" id="nomeNovo" placeholder="Nome" value="{{dadosDoProduto.nome}}">
+                            </div>
+                            <div class="item">
+                                <label for="descricaoNovo">Descrição:</label>
+                                <input type="text" maxlength="50" name="descricaoNovo" id="descricaoNovo" placeholder="Descrição" value="{{dadosDoProduto.descricao}}">
+                            </div>
+                            <div class="item">
+                                <label for="marcaNovo">Marca:</label>
+                                <input type="text" maxlength="50" name="marcaNovo" id="marcaNovo" placeholder="Marca" value="{{dadosDoProduto.marca}}">
+                            </div>
+                            <div class="item">
+                                <label for="unidadeMedidaNovo">Unidade de Medida:</label>
+                                <input type="text" maxlength="10" name="unidadeMedidaNovo" id="unidadeMedidaNovo" placeholder="Unidade de Medida" value="{{dadosDoProduto.unidadeMedida}}">
+                            </div>
+                            <div class="item">
+                                <label for="medidaNovo">Medida:</label>
+                                <input type="number" maxlength="10" name="medidaNovo" id="medidaNovo" step=".01" placeholder="Medida" value="{{dadosDoProduto.medida}}">
+                            </div>
+                            <div class="item">
+                                <label for="loteNovo">Lote:</label>
+                                <input type="text" maxlength="10" name="loteNovo" id="loteNovo" placeholder="Lote" value="{{dadosDoProduto.lote}}">
+                            </div>
+                            <div class="item">
+                                <label for="dataFabricacaoNovo">Data de Fabricação:</label>
+                                <input type="date" name="dataFabricacaoNovo" id="dataFabricacaoNovo" placeholder="Data de Fabricação" value="{{dadosDoProduto.dataFabricacao}}">
+                            </div>
+                            <div class="item">
+                                <label for="dataValidadeNovo">Data de Validade:</label>
+                                <input type="date" name="dataValidadeNovo" id="dataValidadeNovo" placeholder="Data de Validade" value="{{dadosDoProduto.dataValidade}}">
+                            </div>
+                            <div class="item">
+                                <label for="precoNovo">Preço:</label>
+                                <input type="number" maxlength="10" name="precoNovo" id="precoNovo" step=".01" placeholder="Preço" value="{{dadosDoProduto.preco}}">
+                            </div>
+                            <div class="item">
+                                <label for="fotoNovo">Foto:</label>
+                                <input type="text" maxlength="50" name="fotoNovo" id="fotoNovo" placeholder="Foto" value="{{dadosDoProduto.foto}}">
+                            </div>
+                            <div class="item">
+                                <label for="categoriaNovo">Categoria:</label>
+                                <input type="text" maxlength="50" name="categoriaNovo" id="categoriaNovo" placeholder="Categoria" value="{{dadosDoProduto.categoria}}">
+                            </div>
+                        </div>
+                        
+                        <div class="btns">
+                            <button class="verde" type="submit" name="btnNovo" value="confirmar">Cadastrar Produto</button>
+                            <button class="vermelho" type="submit" name="btnNovo" value="cancelar">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+
+            {{/if}}
+            <span>{{mensagemDeErro}}</span>
+        </div>
+    </div>
+</section>
+
+<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>

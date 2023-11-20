@@ -1,0 +1,130 @@
+<section class="linha bloco_usuario">
+    <div class="container">
+        <div class="ajuste">
+            {{#if atualizarDados}}
+                <input type="radio" id="pesquisar" name="rdPesquisarUsuario" value="pesquisar">
+                <label for="pesquisar">Fazer Pesquisa!</label>
+                <input type="radio" id="usuario" name="rdPesquisarUsuario" value="usuario" checked="true">
+                <label for="usuario">Meu Usuário</label>
+            {{else}}
+                <input type="radio" id="pesquisar" name="rdPesquisarUsuario" value="pesquisar" checked="true">
+                <label for="pesquisar">Fazer Pesquisa!</label>
+                <input type="radio" id="usuario" name="rdPesquisarUsuario" value="usuario">
+                <label for="usuario">Meu Usuário</label>
+            {{/if}}
+
+            <ul>
+                <li>
+                    <h3>Pesquisa Rápida</h3>
+                    <form action="/pesquisaRapida" method="POST">
+                        <input type="text" name="txtPesquisaSimples" id="txtPesquisaSimples" placeholder="Procure por um item específico. Ex.: Leite, Arroz, Feijão...">
+                        <button type="submit">Pesquisar!</button>
+                    </form>
+                    <h3>Lista de Compras</h3>
+                    <form action="/listaDeCompras" method="POST">
+                        <textarea name="txtListaDeCompras" id="txtListaDeCompras" rows="10" placeholder="Coloque aqui os itens da sua lista de compras em linhas diferentes [ENTER] ou separados por ponto e vírgula [;]."></textarea>
+                        <button type="submit">Pesquisar!</button>
+                    </form>
+                    <span>{{mensagemDeErroPesquisa}}</span>
+                </li>
+                <li>
+                    <form action="/menu" method="post">
+                        <div class="btns">
+                            <button class="branco" type="submit" name="btnMenu" value="sair">Sair/Logout</button>
+                            <button class="verde" type="submit" name="btnMenu" value="mercado">Meu Mercado</button>
+                        </div>
+                    </form>
+                    {{#if atualizarDados}}
+                        <form action="/atualizar" method="POST">
+                            <div class="ajuste">
+                                <div class="esq">
+                                    <h3>Dados Pessoais:</h3>
+                                    <label for="cpf">CPF:</label>
+                                    <input type="text" maxlength="14" name="cpfNovo" id="cpfNovo" value="{{usuario.cpf}}">
+                                    <label for="email">E-mail:</label>
+                                    <input type="email" maxlength="50" name="emailNovo" id="emailNovo" value="{{usuario.email}}">
+                                    <label for="senha">Senha:</label>
+                                    <input type="password" maxlength="50" name="senhaNovo" id="senhaNovo" value="{{usuario.senha}}">
+                                    <label for="nome">Nome:</label>
+                                    <input type="text" maxlength="50" name="nomeNovo" id="nomeNovo" value="{{usuario.nome}}">
+                                    <label for="telefone">telefone</label>
+                                    <input type="text" maxlength="15" name="telefoneNovo" id="telefoneNovo" value="{{usuario.telefone}}">
+                                    <label for="foto">Foto:</label>
+                                    <input type="text" maxlength="50" name="fotoNovo" id="fotoNovo" value="{{usuario.foto}}">
+                                </div>
+                                <div class="dir">
+                                    <h3>Endereço:</h3>
+                                    <label for="cep">CEP:</label>
+                                    <input type="text" maxlength="9" name="cepNovo" id="cepNovo" value="{{usuario.cep}}">
+                                    <label for="logradouro">Logradouro:</label>
+                                    <input type="text" maxlength="50" name="logradouroNovo" id="logradouroNovo" value="{{usuario.logradouro}}">
+                                    <label for="numero">Número</label>
+                                    <input type="text" maxlength="5" name="numeroNovo" id="numeroNovo" value="{{usuario.numero}}">
+                                    <label for="bairro">Bairro</label>
+                                    <input type="text" maxlength="20" name="bairroNovo" id="bairroNovo" value="{{usuario.bairro}}">
+                                    <label for="cidade">Cidade</label>
+                                    <input type="text" maxlength="20" name="cidadeNovo" id="cidadeNovo" value="{{usuario.cidade}}">
+                                    <label for="uf">UF:</label>
+                                    <input type="text" maxlength="2" name="ufNovo" id="ufNovo" value="{{usuario.uf}}">
+                                    <label for="pais">País:</label>
+                                    <input type="text" maxlength="20" name="paisNovo" id="paisNovo" value="{{usuario.pais}}">
+                                    <label for="complemento">Complemento:</label>
+                                    <input type="text" maxlength="50" name="complementoNovo" id="complementoNovo" value="{{usuario.complemento}}">
+                                </div>
+                            </div>
+                            <div class="btns">
+                                <button class="vermelho" type="submit" name="atualizar" value="cancelar">Cancelar</button>
+                                <button class="verde" type="submit" name="atualizar" value="confirmar">Confirmar!</button>
+                            </div>
+                        </form>
+                    {{else}}
+                        <form action="/atualizar" method="POST">
+                            <div class="ajuste">
+                                <div class="esq">
+                                    <h3>Dados Pessoais:</h3>
+                                    <label for="cpf">CPF:</label>
+                                    <input type="text" maxlength="14" name="cpfAntigo" id="cpfAntigo" value="{{usuario.cpf}}" disabled>
+                                    <label for="email">E-mail:</label>
+                                    <input type="email" maxlength="50" name="emailAntigo" id="emailAntigo" value="{{usuario.email}}" disabled>
+                                    <label for="senha">Senha:</label>
+                                    <input type="password" maxlength="50" name="senhaAntigo" id="senhaAntigo" value="{{usuario.senha}}" disabled>
+                                    <label for="nome">Nome:</label>
+                                    <input type="text" maxlength="50" name="nomeAntigo" id="nomeAntigo" value="{{usuario.nome}}" disabled>
+                                    <label for="telefone">telefone</label>
+                                    <input type="text" maxlength="15" name="telefoneAntigo" id="telefoneAntigo" value="{{usuario.telefone}}" disabled>
+                                    <label for="foto">Foto:</label>
+                                    <input type="text" maxlength="50" name="fotoAntigo" id="fotoAntigo" value="{{usuario.foto}}" disabled>
+                                </div>
+                                <div class="dir">
+                                    <h3>Endereço:</h3>
+                                    <label for="cep">CEP:</label>
+                                    <input type="text" maxlength="9" name="cepAntigo" id="cepAntigo" value="{{usuario.cep}}" disabled>
+                                    <label for="logradouro">Logradouro:</label>
+                                    <input type="text" maxlength="50" name="logradouroAntigo" id="logradouroAntigo" value="{{usuario.logradouro}}" disabled>
+                                    <label for="numero">Número</label>
+                                    <input type="text" maxlength="5" name="numeroAntigo" id="numeroAntigo" value="{{usuario.numero}}" disabled>
+                                    <label for="bairro">Bairro</label>
+                                    <input type="text" maxlength="20" name="bairroAntigo" id="bairroAntigo" value="{{usuario.bairro}}" disabled>
+                                    <label for="cidade">Cidade</label>
+                                    <input type="text" maxlength="20" name="cidadeAntigo" id="cidadeAntigo" value="{{usuario.cidade}}" disabled>
+                                    <label for="uf">UF:</label>
+                                    <input type="text" maxlength="2" name="ufAntigo" id="ufAntigo" value="{{usuario.uf}}" disabled>
+                                    <label for="pais">País:</label>
+                                    <input type="text" maxlength="20" name="paisAntigo" id="paisAntigo" value="{{usuario.pais}}" disabled>
+                                    <label for="complemento">Complemento:</label>
+                                    <input type="text" maxlength="50" name="complementoAntigo" id="complementoAntigo" value="{{usuario.complemento}}" disabled>
+                                </div>
+                            </div>
+
+                            <div class="btns">
+                                <button class="azul" type="submit" name="atualizar" value="liberar">Atualizar Dados</button>
+                                <button class="vermelho" type="submit" name="atualizar" value="deletar">Deletar Conta</button>
+                            </div>
+                        </form>
+                    {{/if}}
+                    <span>{{mensagemDeErroAtualizar}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,12 @@
+// Tamanhos de tela
+$small-mobile-width: 320px;
+$mobile-width: 768px;
+$tablet-width: $mobile-width + 1px;
+$desktop-width: 1350px;
+$large-desktop-width: 1440px;
+
+$smallMobile: "(max-width: #{$small-mobile-width})";
+$mobile: "(min-width: #{$small-mobile-width}) and (max-width: #{$mobile-width})";
+$tablet: "(min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px})";
+$desktop: "(min-width: #{$desktop-width}) and (max-width: #{$large-desktop-width - 1px})";
+$desktopLarge: "(min-width: #{$large-desktop-width})";

@@ -1,0 +1,53 @@
+<section class="linha bloco_pesquisa">
+    <div class="container">
+        <div class="ajuste">
+            <form action="/menu" method="post">
+                <div class="btns">
+                    <button class="verde" type="submit" name="btnMenu" value="usuario">Voltar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="cobre_tabela">
+        <div class="tabela">
+            <table class="sortable">
+                <thead>
+                    <tr>
+                        <th>Preço</th>
+                        <th>Produto</th>
+                        <th>Descrição</th>
+                        <th>Marca</th>
+                        <th>Mercado</th>
+                        <th>Data Fabricação</th>
+                        <th>Data Validade</th>
+                        <th>Lote</th>
+                        <th>Categoria</th>
+                        <th>Uni. de Medida</th>
+                        <th>Medida</th>
+                        <th>Foto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each produtos}}
+                        <tr class="item">
+                            <td>{{this.preco}}</td>
+                            <td>{{this.nome}}</td>
+                            <td>{{this.descricao}}</td>
+                            <td>{{this.marca}}</td>
+                            <td>{{this.mercado}}</td>
+                            <td>{{this.dataFabricacao}}</td>
+                            <td>{{this.dataValidade}}</td>
+                            <td>{{this.lote}}</td>
+                            <td>{{this.categoria}}</td>
+                            <td>{{this.unidadeMedida}}</td>
+                            <td>{{this.medida}}</td>
+                            <td>{{this.foto}}</td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>

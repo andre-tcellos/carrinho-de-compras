@@ -1,0 +1,1192 @@
+@import "config_padrao";
+
+._bg_principal {
+    background-image: url('../images/bg_principal.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+._bg_azul {
+    background: linear-gradient(-45deg, $azul-100, $branco-000);
+}
+
+._bg_laranja {
+    background: linear-gradient(-45deg, $laranja-100, $branco-000);
+}
+
+._bg_verde {
+    background: linear-gradient(-45deg, $verde-100, $branco-000);
+}
+
+main {
+	> .bloco_principal {
+        @extend ._bg_principal;
+        
+        > .container {
+            min-height: 80vh;
+            padding: 4rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            justify-content: center;
+            align-items: flex-start;
+
+            > .ajuste {
+                display: flex;
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                align-content: flex-end;
+                align-items: flex-end;
+
+                &:before {
+                    content: '';
+                    display: block;
+                    width: 0px;
+                    height: 56px;
+                }
+
+                > input[type=radio] {
+                    display: none;
+                }
+    
+                > label {
+                    color: $preto-900;
+                    background-color: $branco-000;
+                    cursor: pointer;
+                    display: block;
+                    padding: .5rem 2rem;
+                    filter: brightness(.6);
+                    border-radius: 1rem 1rem 0 0;
+                    transition: all .2s linear;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    font-size: 1.2rem;
+                    line-height: 1.2em;
+
+                    &:hover {
+                        padding: .7rem 2.5rem;
+                        filter: brightness(.8);
+                    }
+                }
+    
+                > ul {
+                    border: 3px solid $cinza-800;
+                    box-shadow: 0 0 .5rem $preto-900-t5;
+                    display: block;
+                    width: 100%;
+                    position: relative;
+                    overflow: hidden;
+                    border-radius: 0 1rem 1rem 1rem;
+                    padding: 3rem 1rem;
+    
+                    &:before {
+                        content: '';
+                        @extend ._bg_principal;
+                        filter: blur(15px);
+                        display: block;
+                        position: absolute;
+                        top: -100px;
+                        right: -100px;
+                        bottom: -100px;
+                        left: -100px;
+                        z-index: 1;
+                    }
+
+                    &:after {
+                        content: '';
+                        background-color: $preto-900-t6;
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        z-index: 1;
+                    }
+    
+                    > li {
+                        display: none;
+                        position: relative;
+                        z-index: 2;
+    
+                        > h3 {
+                            color: $branco-000;
+                            display: block;
+                            margin-bottom: 2rem;
+                            text-align: center;
+                            font-weight: 600;
+                            font-size: 1.4rem;
+                            line-height: 1.2em;
+
+                            > span {
+                                color: $amarelo-400;
+                                font-weight: 600;
+                            }
+                        }
+    
+                        > form {
+                            display: block;
+                            margin: 0 auto;
+                            max-width: 600px;
+
+                            > input {
+                                border: 1px solid $cinza-400;
+                                border-radius: .5rem;
+                                display: block;
+                                width: 100%;
+                                margin: 0 auto .5rem;
+                                padding: .5rem 2rem;
+                                font-size: 1.2rem;
+                                line-height: 1.2em;
+
+                                &:disabled {
+                                    color: $branco-000;
+                                    cursor: no-drop;
+                                }
+                                
+                                &:not(:disabled) {
+                                    color: $cinza-800;
+                                    background: $branco-000;
+                                }
+                            }
+    
+                            > h4 {
+                                color: $amarelo-400;
+                                display: block;
+                                margin-top: 2rem;
+                                margin-bottom: 1rem;
+                                font-weight: 600;
+                                font-size: 1.4rem;
+                                line-height: 1.2em;
+                            }
+
+                            > button {
+                                color: $branco-000;
+                                background-color: $verde-400;
+                                border-radius: .5rem;
+                                display: block;
+                                margin: 0 auto;
+                                padding: .5rem .5rem;
+                                width: 100%;
+                                text-align: center;
+                                text-transform: uppercase;
+                                font-weight: 600;
+                                font-size: 1.4rem;
+                                line-height: 1.2em;
+                            }
+
+                            > .btns {
+                                width: 100%;
+                                display: flex;
+                                flex-wrap: nowrap;
+                                align-content: center;
+                                justify-content: center;
+                                align-items: center;
+                                gap: .5rem;
+        
+                                > button {
+                                    border-radius: .5rem;
+                                    display: block;
+                                    padding: .5rem .5rem;
+                                    width: 100%;
+                                    text-align: center;
+                                    text-transform: uppercase;
+                                    font-weight: 600;
+                                    font-size: 1.4rem;
+                                    line-height: 1.2em;
+            
+                                    &:not(:disabled) {
+                                        color: $branco-000;
+            
+                                        &.vermelho {
+                                            background-color: $vermelho-400;
+                                        }
+            
+                                        &.verde {
+                                            background-color: $verde-400;
+                                        }
+            
+                                        &.azul {
+                                            background-color: $azul-400;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+    
+                        > span {
+                            color: $vermelho-400;
+                            font-size: 1rem;
+                            line-height: 1.2em;
+                            text-align: center;
+                            display: block;
+                        }
+                    }
+                }
+    
+                > input[type=radio]:first-of-type:checked {
+                    ~ label:first-of-type {
+                        padding: 1rem 4rem;
+                        filter: brightness(1);
+                    }
+
+                    ~ ul {
+                        > li {
+                            &:first-of-type {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+    
+                > input[type=radio]:last-of-type:checked {
+                    ~ label:last-of-type {
+                        padding: 1rem 2rem;
+                        filter: brightness(1);
+                    }
+
+                    ~ ul {
+                        > li {
+                            &:last-of-type {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    > .bloco_usuario {
+        @extend ._bg_azul;
+
+        > .container {
+            min-height: 80vh;
+            padding: 4rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            justify-content: center;
+            align-items: flex-start;
+
+            > .ajuste {
+                display: flex;
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                align-content: flex-end;
+                align-items: flex-end;
+
+                &:before {
+                    content: '';
+                    display: block;
+                    width: 0px;
+                    height: 56px;
+                }
+
+                > input[type=radio] {
+                    display: none;
+                }
+    
+                > label {
+                    color: $preto-900;
+                    background-color: $branco-000;
+                    cursor: pointer;
+                    display: block;
+                    padding: .5rem 2rem;
+                    filter: brightness(.6);
+                    border-radius: 1rem 1rem 0 0;
+                    transition: all .2s linear;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    font-size: 1.2rem;
+                    line-height: 1.2em;
+
+                    &:hover {
+                        padding: .7rem 2.5rem;
+                        filter: brightness(.8);
+                    }
+                }
+
+                > ul {
+                    border: 3px solid $cinza-800;
+                    box-shadow: 0 0 .5rem $preto-900-t5;
+                    display: block;
+                    width: 100%;
+                    position: relative;
+                    overflow: hidden;
+                    border-radius: 0 1rem 1rem 1rem;
+                    padding: 3rem 1rem;
+    
+                    &:before {
+                        content: '';
+                        @extend ._bg_azul;
+                        filter: blur(15px);
+                        display: block;
+                        position: absolute;
+                        top: -100px;
+                        right: -100px;
+                        bottom: -100px;
+                        left: -100px;
+                        z-index: 1;
+                    }
+    
+                    &:after {
+                        content: '';
+                        background-color: $preto-900-t6;
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        z-index: 1;
+                    }
+
+                    > li {
+                        display: none;
+                        position: relative;
+                        z-index: 2;
+
+                        &:nth-child(1) {
+                            > h3 {
+                                color: $amarelo-400;
+                                display: block;
+                                margin-bottom: 1rem;
+                                font-weight: 600;
+                                font-size: 1.4rem;
+                                line-height: 1.2em;
+        
+                                &:not(:first-of-type) {
+                                    margin-top: 2rem;
+                                }
+                            }
+
+                            > form {
+                                display: block;
+                                
+                                > textarea,
+                                > input {
+                                    border: 1px solid $cinza-400;
+                                    border-radius: .5rem;
+                                    display: block;
+                                    width: 100%;
+                                    margin: 0 auto .5rem;
+                                    padding: .5rem 2rem;
+                                    font-size: 1.2rem;
+                                    line-height: 1.2em;
+            
+                                    &:disabled {
+                                        cursor: no-drop;
+                                    }
+            
+                                    &:not(:disabled) {
+                                        color: $cinza-800;
+                                        background: $branco-000;
+                                    }
+                                }
+
+                                > button {
+                                    color: $branco-000;
+                                    background-color: $verde-400;
+                                    border-radius: .5rem;
+                                    display: block;
+                                    padding: .5rem 1rem;
+                                    text-align: center;
+                                    text-transform: uppercase;
+                                    font-weight: 600;
+                                    font-size: 1.2rem;
+                                    line-height: 1.2em;
+                                }
+                            }
+
+                            > span {
+                                color: $vermelho-400;
+                                font-size: 1rem;
+                                line-height: 1.2em;
+                                text-align: center;
+                                display: block;
+                            }
+                        }
+
+                        &:nth-child(2) {
+                            > form {
+                                display: block;
+                                margin: 0 auto;
+                                position: relative;
+                                z-index: 2;
+            
+                                > .ajuste {
+                                    display: flex;
+                                    flex-wrap: wrap;
+                                    align-content: flex-start;
+                                    justify-content: center;
+                                    align-items: flex-start;
+                                    gap: 1rem 5%;
+                                    padding: 1rem 0;
+            
+                                    > div {
+                                        display: block;
+                                        width: 47.5%;
+            
+                                        @media #{$mobile} {
+                                            width: 100%;
+                                        }
+            
+                                        //&.esq {}
+            
+                                        //&.dir {}
+            
+                                        > h3 {
+                                            color: $amarelo-400;
+                                            display: block;
+                                            margin-bottom: 1rem;
+                                            font-weight: 600;
+                                            font-size: 1.4rem;
+                                            line-height: 1.2em;
+                    
+                                            &:not(:first-of-type) {
+                                                margin-top: 2rem;
+                                            }
+                                        }
+                    
+                                        > label {
+                                            color: $branco-000;
+                                            display: block;
+                                            margin-bottom: .3rem;
+                                            font-weight: 800;
+                                            font-size: 1rem;
+                                            line-height: 1.2em;
+                                        }
+                    
+                                        > input {
+                                            border: 1px solid $cinza-400;
+                                            border-radius: .5rem;
+                                            display: block;
+                                            width: 100%;
+                                            margin: 0 auto .5rem;
+                                            padding: .5rem 2rem;
+                                            font-size: 1.2rem;
+                                            line-height: 1.2em;
+                    
+                                            &:disabled {
+                                                cursor: no-drop;
+                                            }
+                    
+                                            &:not(:disabled) {
+                                                color: $cinza-800;
+                                                background: $branco-000;
+                                            }
+                                        }
+                                    }
+                                }
+            
+                                > .btns {
+                                    width: 100%;
+                                    display: flex;
+                                    flex-wrap: wrap;
+                                    align-content: center;
+                                    justify-content: flex-end;
+                                    align-items: center;
+                                    gap: .5rem;
+            
+                                    > button {
+                                        border-radius: .5rem;
+                                        display: block;
+                                        padding: .5rem 1rem;
+                                        text-align: center;
+                                        text-transform: uppercase;
+                                        font-weight: 600;
+                                        font-size: 1.2rem;
+                                        line-height: 1.2em;
+                
+                                        &:not(:disabled) {
+                                            color: $branco-000;
+                
+                                            &.vermelho {
+                                                background-color: $vermelho-400;
+                                            }
+                
+                                            &.verde {
+                                                background-color: $verde-400;
+                                            }
+                
+                                            &.azul {
+                                                background-color: $azul-400;
+                                            }
+            
+                                            &.branco {
+                                                color: $azul-400;
+                                                background-color: $branco-000;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+            
+                            > span {
+                                color: $vermelho-400;
+                                font-size: 1rem;
+                                line-height: 1.2em;
+                                text-align: center;
+                                display: block;
+                                margin: 0 auto;
+                                max-width: 600px;
+                                position: relative;
+                                z-index: 2;
+                            }
+                        }
+                    }
+                }
+
+                > input[type=radio]:first-of-type:checked {
+                    ~ label:first-of-type {
+                        padding: 1rem 4rem;
+                        filter: brightness(1);
+                    }
+
+                    ~ ul {
+                        > li {
+                            &:first-of-type {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+    
+                > input[type=radio]:last-of-type:checked {
+                    ~ label:last-of-type {
+                        padding: 1rem 2rem;
+                        filter: brightness(1);
+                    }
+
+                    ~ ul {
+                        > li {
+                            &:last-of-type {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    > .bloco_mercado {
+        @extend ._bg_laranja;
+
+        > .container {
+            min-height: 80vh;
+            padding: 4rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            justify-content: center;
+            align-items: flex-start;
+
+            > .ajuste {
+                border: 3px solid $cinza-800;
+                box-shadow: 0 0 .5rem $preto-900-t5;
+                display: block;
+                width: 100%;
+                position: relative;
+                overflow: hidden;
+                border-radius: 1rem;
+                padding: 3rem 1rem;
+
+                &:before {
+                    content: '';
+                    @extend ._bg_laranja;
+                    filter: blur(15px);
+                    display: block;
+                    position: absolute;
+                    top: -100px;
+                    right: -100px;
+                    bottom: -100px;
+                    left: -100px;
+                    z-index: 1;
+                }
+
+                &:after {
+                    content: '';
+                    background-color: $preto-900-t6;
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    z-index: 1;
+                }
+                
+                > form {
+                    display: block;
+                    margin: 0 auto;
+                    position: relative;
+                    z-index: 2;
+
+                    > .ajuste {
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-content: flex-start;
+                        justify-content: center;
+                        align-items: flex-start;
+                        gap: 1rem 5%;
+                        padding: 1rem 0;
+
+                        > div {
+                            display: block;
+                            width: 47.5%;
+
+                            @media #{$mobile} {
+                                width: 100%;
+                            }
+
+                            //&.esq {}
+
+                            //&.dir {}
+
+                            > h3 {
+                                color: $amarelo-400;
+                                display: block;
+                                margin-bottom: 1rem;
+                                font-weight: 600;
+                                font-size: 1.4rem;
+                                line-height: 1.2em;
+        
+                                &:not(:first-of-type) {
+                                    margin-top: 2rem;
+                                }
+                            }
+        
+                            > label {
+                                color: $branco-000;
+                                display: block;
+                                margin-bottom: .3rem;
+                                font-weight: 800;
+                                font-size: 1rem;
+                                line-height: 1.2em;
+                            }
+        
+                            > input {
+                                border: 1px solid $cinza-400;
+                                border-radius: .5rem;
+                                display: block;
+                                width: 100%;
+                                margin: 0 auto .5rem;
+                                padding: .5rem 2rem;
+                                font-size: 1.2rem;
+                                line-height: 1.2em;
+        
+                                &:disabled {
+                                    cursor: no-drop;
+                                }
+        
+                                &:not(:disabled) {
+                                    color: $cinza-800;
+                                    background: $branco-000;
+                                }
+                            }
+                        }
+                    }
+
+                    > .btns {
+                        width: 100%;
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-content: center;
+                        justify-content: flex-end;
+                        align-items: center;
+                        gap: .5rem;
+
+                        > button {
+                            border-radius: .5rem;
+                            display: block;
+                            padding: .5rem 1rem;
+                            text-align: center;
+                            text-transform: uppercase;
+                            font-weight: 600;
+                            font-size: 1.2rem;
+                            line-height: 1.2em;
+    
+                            &:not(:disabled) {
+                                color: $branco-000;
+    
+                                &.vermelho {
+                                    background-color: $vermelho-400;
+                                }
+    
+                                &.verde {
+                                    background-color: $verde-400;
+                                }
+    
+                                &.azul {
+                                    background-color: $azul-400;
+                                }
+
+                                &.branco {
+                                    color: $azul-400;
+                                    background-color: $branco-000;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                > span {
+                    color: $vermelho-400;
+                    font-size: 1rem;
+                    line-height: 1.2em;
+                    text-align: center;
+                    display: block;
+                    margin: 0 auto;
+                    max-width: 600px;
+                    position: relative;
+                    z-index: 2;
+                }
+            }
+        }
+    }
+
+    > .bloco_produtos {
+        @extend ._bg_verde;
+        min-height: 80vh;
+        padding: 4rem 0;
+
+        > .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            justify-content: center;
+            align-items: flex-start;
+
+            > .ajuste {
+                display: block;
+                width: 100%;
+
+                > form {
+                    display: block;
+                    margin: 0 auto;
+                    
+                    > .btns {
+                        width: 100%;
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-content: center;
+                        justify-content: flex-end;
+                        align-items: center;
+                        gap: .5rem;
+
+                        > button {
+                            border-radius: .5rem;
+                            display: block;
+                            padding: .5rem 1rem;
+                            text-align: center;
+                            text-transform: uppercase;
+                            font-weight: 600;
+                            font-size: 1.2rem;
+                            line-height: 1.2em;
+    
+                            &:not(:disabled) {
+                                color: $branco-000;
+    
+                                &.vermelho {
+                                    background-color: $vermelho-400;
+                                }
+    
+                                &.verde {
+                                    background-color: $verde-400;
+                                }
+    
+                                &.azul {
+                                    background-color: $azul-400;
+                                }
+
+                                &.branco {
+                                    color: $azul-400;
+                                    background-color: $branco-000;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        > .cobre_tabela {
+            padding: 0 .5rem;
+            display: block;
+
+            > .tabela {
+                max-width: 100%;
+                overflow: auto;
+    
+                > table {
+                    background-color: $branco-000;
+                    border: solid 1px $azul-010;
+                    display: block;
+                    position: relative;
+                    z-index: 2;
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                    table-layout: auto;
+                    margin: 1rem 0 0 0;
+                    min-width: max-content;
+    
+                    > thead {
+                        > tr {
+                            > th {
+                                color: $azul-450;
+                                background-color: $azul-010;
+                                border: solid 1px $azul-010;
+                                text-shadow: 1px 1px 1px $branco-000;
+                                padding: 10px;
+                                text-align: left;
+                                font-size: 1.2rem;
+                                line-height: 1.2em;
+                                cursor: pointer;
+                                transition: all .2s linear;
+
+                                &:hover {
+                                    filter: brightness(.9);
+                                }
+                            }
+                        }
+                    }
+    
+                    > tbody {
+                        > tr {
+                            > td {
+                                color: $cinza-800;
+                                border: solid 1px $azul-010;
+                                text-shadow: 1px 1px 1px $branco-000;
+                                padding: 10px;
+                                font-size: .9rem;
+                                line-height: 1.2em;
+
+                                &:nth-child(10) {
+                                    &:before {
+                                        content: 'R$ ';
+                                    }
+                                }
+
+                                > .ajuste {
+                                    display: flex;
+                                    flex-wrap: nowrap;
+                                    align-content: center;
+                                    justify-content: center;
+                                    align-items: center;
+                                    gap: .5rem;
+                                    margin: -.3rem 0;
+
+                                    > form {
+                                        display: block;
+
+                                        > button {
+                                            color: $branco-000;
+                                            border-radius: .5rem;
+                                            display: block;
+                                            padding: .3rem;
+                                            text-align: center;
+                                            text-transform: uppercase;
+                                            font-weight: 600;
+                    
+                                            &.vermelho {
+                                                background-color: $vermelho-400;
+                                            }
+                
+                                            &.verde {
+                                                background-color: $verde-400;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            > .form_novo_edit {
+                margin-top: 1rem;
+
+                > h3 {
+                    color: $verde-800;
+                    display: block;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                    text-align: center;
+                    font-size: 1.4rem;
+                    line-height: 1.2em;
+                }
+
+                > input[type=checkbox] {
+                    display: none;
+                }
+
+                > label {
+                    color: $branco-000;
+                    background-color: $verde-400;
+                    border-radius: .5rem;
+                    display: block;
+                    padding: .5rem 1rem;
+                    text-align: center;
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    font-size: 1.2rem;
+                    line-height: 1.2em;
+                    cursor: pointer;
+                    transition: all .2s linear;
+
+                    &:hover {
+                        filter: brightness(.8);
+                    }
+                }
+
+                > div {
+                    overflow: hidden;
+                    transition: all .2s linear;
+
+                    &.novo {
+                        max-height: 0px;
+                    }
+
+                    > form {
+                        margin-top: 1rem;
+
+                        > .ajuste {
+                            display: flex;
+                            flex-wrap: wrap;
+                            align-content: flex-start;
+                            justify-content: flex-start;
+                            align-items: flex-start;
+                            gap: .5rem 5%;
+
+                            > .item {
+                                width: 30%;
+
+                                @media #{$mobile} {
+                                    width: 100%;
+                                }
+
+                                > label {
+                                    color: $azul-400;
+                                    display: block;
+                                    margin-bottom: .3rem;
+                                    font-weight: 800;
+                                    font-size: 1rem;
+                                    line-height: 1.2em;
+                                }
+            
+                                > input {
+                                    color: $cinza-800;
+                                    background: $branco-000;
+                                    border: 1px solid $cinza-400;
+                                    border-radius: .5rem;
+                                    display: block;
+                                    width: 100%;
+                                    margin: 0 auto .5rem;
+                                    padding: .5rem 2rem;
+                                    font-size: 1.2rem;
+                                    line-height: 1.2em;
+                                }
+                            }
+                        }
+
+                        > .btns {
+                            width: 100%;
+                            display: flex;
+                            flex-wrap: wrap;
+                            align-content: center;
+                            justify-content: flex-end;
+                            align-items: center;
+                            gap: .5rem;
+    
+                            > button {
+                                border-radius: .5rem;
+                                display: block;
+                                padding: .5rem 1rem;
+                                text-align: center;
+                                text-transform: uppercase;
+                                font-weight: 600;
+                                font-size: 1.2rem;
+                                line-height: 1.2em;
+        
+                                &:not(:disabled) {
+                                    color: $branco-000;
+        
+                                    &.vermelho {
+                                        background-color: $vermelho-400;
+                                    }
+        
+                                    &.verde {
+                                        background-color: $verde-400;
+                                    }
+        
+                                    &.azul {
+                                        background-color: $azul-400;
+                                    }
+    
+                                    &.branco {
+                                        color: $azul-400;
+                                        background-color: $branco-000;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                > input[type=checkbox]:checked {
+                    ~ div.novo {
+                        max-height: 1000px;
+                    }
+                }
+
+                > span {
+                    color: $vermelho-400;
+                    font-size: 1rem;
+                    line-height: 1.2em;
+                    text-align: center;
+                    display: block;
+                    margin: 0 auto;
+                    max-width: 600px;
+                    position: relative;
+                    z-index: 2;
+                }
+            }
+        }
+    }
+
+    > .bloco_pesquisa {
+        @extend ._bg_azul;
+        min-height: 80vh;
+        padding: 4rem 0;
+
+        > .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            justify-content: center;
+            align-items: flex-start;
+
+            > .ajuste {
+                display: block;
+                width: 100%;
+
+                > form {
+                    display: block;
+                    margin: 0 auto;
+                    
+                    > .btns {
+                        width: 100%;
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-content: center;
+                        justify-content: flex-end;
+                        align-items: center;
+                        gap: .5rem;
+
+                        > button {
+                            border-radius: .5rem;
+                            display: block;
+                            padding: .5rem 1rem;
+                            text-align: center;
+                            text-transform: uppercase;
+                            font-weight: 600;
+                            font-size: 1.2rem;
+                            line-height: 1.2em;
+    
+                            &:not(:disabled) {
+                                color: $branco-000;
+    
+                                &.vermelho {
+                                    background-color: $vermelho-400;
+                                }
+    
+                                &.verde {
+                                    background-color: $verde-400;
+                                }
+    
+                                &.azul {
+                                    background-color: $azul-400;
+                                }
+
+                                &.branco {
+                                    color: $azul-400;
+                                    background-color: $branco-000;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        > .cobre_tabela {
+            padding: 0 .5rem;
+            display: block;
+
+            > .tabela {
+                max-width: 100%;
+                overflow: auto;
+    
+                > table {
+                    background-color: $branco-000;
+                    border: solid 1px $azul-010;
+                    display: block;
+                    position: relative;
+                    z-index: 2;
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                    table-layout: auto;
+                    margin: 1rem 0 0 0;
+                    min-width: max-content;
+    
+                    > thead {
+                        > tr {
+                            > th {
+                                color: $azul-450;
+                                background-color: $azul-010;
+                                border: solid 1px $azul-010;
+                                text-shadow: 1px 1px 1px $branco-000;
+                                padding: 10px;
+                                text-align: left;
+                                font-size: 1.2rem;
+                                line-height: 1.2em;
+                                cursor: pointer;
+                                transition: all .2s linear;
+
+                                &:hover {
+                                    filter: brightness(.9);
+                                }
+                            }
+                        }
+                    }
+    
+                    > tbody {
+                        > tr {
+                            > td {
+                                color: $cinza-800;
+                                border: solid 1px $azul-010;
+                                text-shadow: 1px 1px 1px $branco-000;
+                                padding: 10px;
+                                font-size: .9rem;
+                                line-height: 1.2em;
+
+                                &:nth-child(1) {
+                                    &:before {
+                                        content: 'R$ ';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

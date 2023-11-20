@@ -1,0 +1,97 @@
+<section class="linha bloco_mercado">
+    <div class="container">
+        <div class="ajuste">
+            <form action="/menu" method="post">
+                <div class="btns">
+                    <button class="branco" type="submit" name="btnMenu" value="sair">Sair/Logout</button>
+                    <button class="verde" type="submit" name="btnMenu" value="usuario">Meu Usuário</button>
+                    {{#if mostrarBtnProdutos}}
+                        <button class="verde" type="submit" name="btnMenu" value="produtos">Produtos</button>
+                    {{/if}}
+                </div>
+            </form>
+            {{#if atualizarDados}}
+                <form action="/atualizarMercado" method="POST">
+                    <div class="ajuste">
+                        <div class="esq">
+                            <h3>Dados do Mercado:</h3>
+                            <label for="cnpj">CNPJ:</label>
+                            <input type="text" maxlength="14" name="cnpjNovo" id="cnpjNovo" value="{{mercado.cnpj}}">
+                            <label for="nome">Nome:</label>
+                            <input type="text" maxlength="50" name="nomeNovo" id="nomeNovo" value="{{mercado.nome}}">
+                            <label for="email">E-mail:</label>
+                            <input type="email" maxlength="50" name="emailNovo" id="emailNovo" value="{{mercado.email}}">
+                            <label for="telefone">telefone</label>
+                            <input type="text" maxlength="15" name="telefoneNovo" id="telefoneNovo" value="{{mercado.telefone}}">
+                        </div>
+                        <div class="dir">
+                            <h3>Endereço:</h3>
+                            <label for="cep">CEP:</label>
+                            <input type="text" maxlength="9" name="cepNovo" id="cepNovo" value="{{mercado.cep}}">
+                            <label for="logradouro">Logradouro:</label>
+                            <input type="text" maxlength="50" name="logradouroNovo" id="logradouroNovo" value="{{mercado.logradouro}}">
+                            <label for="numero">Número</label>
+                            <input type="text" maxlength="5" name="numeroNovo" id="numeroNovo" value="{{mercado.numero}}">
+                            <label for="bairro">Bairro</label>
+                            <input type="text" maxlength="20" name="bairroNovo" id="bairroNovo" value="{{mercado.bairro}}">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" maxlength="20" name="cidadeNovo" id="cidadeNovo" value="{{mercado.cidade}}">
+                            <label for="uf">UF:</label>
+                            <input type="text" maxlength="2" name="ufNovo" id="ufNovo" value="{{mercado.uf}}">
+                            <label for="pais">País:</label>
+                            <input type="text" maxlength="20" name="paisNovo" id="paisNovo" value="{{mercado.pais}}">
+                            <label for="complemento">Complemento:</label>
+                            <input type="text" maxlength="50" name="complementoNovo" id="complementoNovo" value="{{mercado.complemento}}">
+                        </div>
+                    </div>
+
+                    <div class="btns">
+                        <button class="vermelho" type="submit" name="atualizar" value="cancelar">Cancelar</button>
+                        <button class="verde" type="submit" name="atualizar" value="confirmar">Confirmar!</button>
+                    </div>
+                </form>
+            {{else}}
+                <form action="/atualizarMercado" method="POST">
+                    <div class="ajuste">
+                        <div class="esq">
+                            <h3>Dados do Mercado:</h3>
+                            <label for="cnpj">CNPJ:</label>
+                            <input type="text" maxlength="14" name="cnpjAntigo" id="cnpjAntigo" value="{{mercado.cnpj}}" disabled>
+                            <label for="nome">Nome:</label>
+                            <input type="text" maxlength="50" name="nomeAntigo" id="nomeAntigo" value="{{mercado.nome}}" disabled>
+                            <label for="email">E-mail:</label>
+                            <input type="email" maxlength="50" name="emailAntigo" id="emailAntigo" value="{{mercado.email}}" disabled>
+                            <label for="telefone">telefone</label>
+                            <input type="text" maxlength="15" name="telefoneAntigo" id="telefoneAntigo" value="{{mercado.telefone}}" disabled>
+                        </div>
+                        <div class="dir">
+                            <h3>Endereço:</h3>
+                            <label for="cep">CEP:</label>
+                            <input type="text" maxlength="9" name="cepAntigo" id="cepAntigo" value="{{mercado.cep}}" disabled>
+                            <label for="logradouro">Logradouro:</label>
+                            <input type="text" maxlength="50" name="logradouroAntigo" id="logradouroAntigo" value="{{mercado.logradouro}}" disabled>
+                            <label for="numero">Número</label>
+                            <input type="text" maxlength="5" name="numeroAntigo" id="numeroAntigo" value="{{mercado.numero}}" disabled>
+                            <label for="bairro">Bairro</label>
+                            <input type="text" maxlength="20" name="bairroAntigo" id="bairroAntigo" value="{{mercado.bairro}}" disabled>
+                            <label for="cidade">Cidade</label>
+                            <input type="text" maxlength="20" name="cidadeAntigo" id="cidadeAntigo" value="{{mercado.cidade}}" disabled>
+                            <label for="uf">UF:</label>
+                            <input type="text" maxlength="2" name="ufAntigo" id="ufAntigo" value="{{mercado.uf}}" disabled>
+                            <label for="pais">País:</label>
+                            <input type="text" maxlength="20" name="paisAntigo" id="paisAntigo" value="{{mercado.pais}}" disabled>
+                            <label for="complemento">Complemento:</label>
+                            <input type="text" maxlength="50" name="complementoAntigo" id="complementoAntigo" value="{{mercado.complemento}}" disabled>
+                        </div>
+                    </div>
+
+                    <div class="btns">
+                        <button class="azul" type="submit" name="atualizar" value="liberar">Atualizar Mercado</button>
+                        <button class="vermelho" type="submit" name="atualizar" value="deletar">Deletar Mercado</button>
+                    </div>
+                </form>
+            {{/if}}
+            <span>{{mensagemDeErroAtualizar}}</span>
+        </div>
+    </div>
+</section>
