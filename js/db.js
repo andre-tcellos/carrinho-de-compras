@@ -14,31 +14,3 @@ async function connectBD() {
 connectBD();
 
 module.exports = { connectBD };
-
-/*
-async function selectUsers() {
-    const conn = await connect();
-    const [rows] = await conn.query('SELECT * FROM usuario;');
-    return rows;
-}
-
-async function insertUser(user) {
-    const conn = await connect();
-    const sql = 'INSERT INTO usuario(cpf, email, senha, nome) VALUES (?, ?, ?, ?);';
-    const values = [user.cpf, user.email, user.senha, user.nome];
-    await conn.query(sql, values);
-}
-
-async function updateUser(id, user) {
-    const conn = await connect();
-    const sql = 'UPDATE usuarios SET nome=?, email=? WHERE codIntUsuario=?;'
-    const values = [user.nome, user.email, id];
-    await conn.query(sql, values);
-}
-
-async function deleteUsuario(id) {
-    const conn = await connect();
-    const sql = 'DELETE FROM usuarios WHERE codIntUsuario=?;';
-    return await conn.query(sql, [id]);
-}
-*/
