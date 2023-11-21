@@ -6,7 +6,7 @@ async function carregaProdutos(mercadoID) {
     const sql = `
         SELECT P.codIntProduto AS id, P.codIntMercado AS mercadoID, P.nome, P.descricao, P.categoria, P.marca, P.unidadeMedida, REPLACE(P.medida, '.', ',') AS medida, P.lote, DATE_FORMAT(P.dataFabricacao,'%d/%m/%Y') AS dataFabricacao, DATE_FORMAT(P.dataValidade,'%d/%m/%Y') AS dataValidade, REPLACE(P.preco, '.', ',') AS preco, P.foto
         FROM produto AS P
-        WHERE P.codIntMercado = 3;
+        WHERE P.codIntMercado = ?;
     `;
     const values = [mercadoID];
     const [rows] = await conn.query(sql, values);
